@@ -4,7 +4,7 @@ This is a fork of [flexiondotorg/oab-java6](https://github.com/flexiondotorg/oab
 
 `oab-java.sh` v0.2.1 - Create a local `apt` repository for Ubuntu Java packages.
 
-Copyright (c) 2012 Tamer Saadeh <tamersaadeh@gmail.com>. MIT License
+Copyright (c) 2012 Tamer Saadeh, <tamersaadeh@gmail.com>. MIT License
 
 Original Copyright (c) 2012 Flexion.Org, http://flexion.org. MIT License
 
@@ -88,6 +88,15 @@ What is 'oab'?
 History
 =======
 
+0.2.2
+-----
+ 
+  * Fixed an issue that caused the path was appearing twice and eliminating it from the filename field.
+      - Closes : https://github.com/tamersaadeh/oab-java/issues/1
+        Thanks to Jeff Cooper <repoocaj@gmail.com> for fixing this.
+  * Fixed an issue with parsing the download url for Java 7 and simplified the parsing for Java 6.
+  * Other minor fixes.
+
 0.2.1
 -----
  
@@ -100,6 +109,7 @@ History
 0.2.0
 -----
  
+  * Initial fork from the [original repository](https://github.com/flexiondotorg/oab-java6)
   * Builds Java 7 packages as well
   * Huge code refactor to make it much easier to maintain
 
