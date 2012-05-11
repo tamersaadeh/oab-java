@@ -34,7 +34,7 @@ do
     DOWNLOAD_SIZE=`grep "${JAVA_BIN}" "/tmp/oab-download-$JAVA7.html" | cut -d'{' -f2 | cut -d',' -f2 | cut -d':' -f2 | sed 's/"//g'`
 
     ncecho " [x] $JAVA7: Downloading ${JAVA_BIN} : ${DOWNLOAD_SIZE} "
-    wget -c "${DOWNLOAD_URL}" -O "$BASE/pkg/${JAVA_BIN}" >> "$LOG" 2>&1 &
+    wget --no-cookies --header "Cookie:gpw_e24=http://www.oracle.com${DOWNLOAD_INDEX}" -c "${DOWNLOAD_URL}" -O "$BASE/pkg/${JAVA_BIN}" >> "$LOG" 2>&1 &
     pid=$!;progress_loop $pid
 
     ncecho " [x] $JAVA7: Symlinking ${JAVA_BIN} "
