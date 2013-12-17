@@ -15,7 +15,7 @@ pid=$!;progress $pid
 
 # See if the Java version is on the download frontpage, otherwise look for it in
 # the previous releases page.
-DOWNLOAD_INDEX=`grep "/technetwork/java/javase/downloads/jdk-${JAVA_VER}u${JAVA_UPD}" "/tmp/oab-index.html" | cut -d'"' -f4`
+DOWNLOAD_INDEX=`grep -o "/technetwork/java/javase/downloads/jdk-${JAVA_VER}u${JAVA_UPD}[^\"]*" "/tmp/oab-index.html" | head -1`
 if [ -n "${DOWNLOAD_INDEX}" ]; then
     ncecho " [x] $JAVA6: Getting current release download page "
     wget "http://www.oracle.com/${DOWNLOAD_INDEX}" -O "/tmp/oab-download-$JAVA6.html" >> "$LOG" 2>&1 &
@@ -34,7 +34,7 @@ do
     DOWNLOAD_SIZE=`grep "${JAVA_BIN}" "/tmp/oab-download-$JAVA6.html" | cut -d'{' -f2 | cut -d',' -f2 | cut -d':' -f2 | sed 's/"//g'`
 
     ncecho " [x] $JAVA6: Downloading ${JAVA_BIN} : ${DOWNLOAD_SIZE} "
-    wget -c "${DOWNLOAD_URL}" -O "$BASE/pkg/${JAVA_BIN}" >> "$LOG" 2>&1 &
+    wget --no-cookies --header "Cookie:gpw_e24=http://www.oracle.com${DOWNLOAD_INDEX}" -c "${DOWNLOAD_URL}" -O "$BASE/pkg/${JAVA_BIN}" >> "$LOG" 2>&1 &
     pid=$!;progress_loop $pid
 
     ncecho " [x] $JAVA6: Symlinking ${JAVA_BIN} "
