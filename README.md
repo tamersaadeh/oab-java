@@ -1,3 +1,6 @@
+### DEPRECATED please refer to the original source code: [flexiondotorg/oab-java6](https://github.com/flexiondotorg/oab-java6)
+===
+
 Origins
 ===
 This is a fork of [flexiondotorg/oab-java6](https://github.com/flexiondotorg/oab-java6) that creates an `apt` repository for both Sun Java 6 and Oracle Java 7.
