@@ -83,9 +83,10 @@ check_sudo
 
 "$SCRIPTS/create_build_dirs.sh"
 
+# Skip Java 6 as the download links are broken due to deprecation
 # for sun-java6
-"$SCRIPTS/get_build_scripts.sh" "$JAVA6"
-"$SCRIPTS/get_java6.sh"
+#"$SCRIPTS/get_build_scripts.sh" "$JAVA6"
+#"$SCRIPTS/get_java6.sh"
 
 # for oracle-java7
 "$SCRIPTS/get_build_scripts.sh" "$JAVA7"
